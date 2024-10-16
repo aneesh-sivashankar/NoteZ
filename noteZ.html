@@ -6,6 +6,7 @@
     <script src="https://cdn.tiny.cloud/1/vzs4bty6jjc0qkm4hkuplzry0oprhb4ghglfutnm5n7f3zfk/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
    <script>
      tinymce.init({
+      
        selector: "#editor",
        plugins: "powerpaste casechange searchreplace autolink directionality advcode visualblocks visualchars image link media mediaembed codesample table charmap pagebreak nonbreaking anchor tableofcontents insertdatetime advlist lists checklist wordcount tinymcespellchecker editimage help formatpainter permanentpen charmap linkchecker emoticons advtable export print autosave",
        toolbar: "undo redo print spellcheckdialog formatpainter | blocks fontfamily fontsize | bold italic underline forecolor backcolor | link image | alignleft aligncenter alignright alignjustify lineheight | checklist bullist numlist indent outdent | removeformat",
@@ -33,7 +34,16 @@
                         padding:4rem 6rem 6rem 6rem
                     }
                 }
-             ` 
+                
+           
+                `
+            ,setup: (editor) => {
+              editor.addShortcut('meta+alt+y','Add yellow highlight to a selected text.',
+              () =>{editor.execCommand('hilitecolor',false,'#FFFF00');
+            });
+            },
+            content_style: 'body {font-family:Helvetica,Arial,sans-serif; font-size:16px }'   
+      
      });
    </script>
  </head>
